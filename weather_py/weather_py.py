@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
 
 import pandas as pd
 import requests
@@ -27,7 +22,7 @@ def api_call(city):
     if exception_not_happened:
         return weather
     
-def forecast(weather):
+def weathercall(weather):
     if weather:
         ls={}
         for x in range(len(weather.get('list'))):
@@ -56,39 +51,19 @@ def forecast(weather):
     
 
 
-# In[2]:
 
 
-def mainfunc():
+
+def forecast():
     print("Welcome to the Weather Forecasting Platform")
     city=input("Enter the City Name you want the forecast for: ")
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
         future = executor.submit(api_call, city)
         weather = future.result()
-    result_forecast = forecast(weather)
+    result_forecast = weathercall(weather)
     print(result_forecast)
 
-
-# In[3]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 

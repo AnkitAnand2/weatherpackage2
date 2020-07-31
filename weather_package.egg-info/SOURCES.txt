@@ -1,7 +1,0 @@
-setup.py
-weather_package/weather_package.py
-weather_package.egg-info/PKG-INFO
-weather_package.egg-info/SOURCES.txt
-weather_package.egg-info/dependency_links.txt
-weather_package.egg-info/not-zip-safe
-weather_package.egg-info/top_level.txt
