@@ -4,6 +4,10 @@ import requests
 import concurrent.futures
 
 def api_call(city):
+    """
+    Using API Call to load the weather data into a json format
+    """
+    
     exception_not_happened = True
     try:
         url='http://api.openweathermap.org/data/2.5/forecast?units=metric&appid=5f1aaab27154e9d7a4c6e81336e9266a&q='
@@ -23,6 +27,11 @@ def api_call(city):
         return weather
     
 def weathercall(weather):
+    
+    """ 
+    Converting the json data receined from the API call to Pandas Dataframe for proper visualization.
+    """
+    
     if weather:
         ls={}
         for x in range(len(weather.get('list'))):
@@ -49,12 +58,13 @@ def weathercall(weather):
         return df_t
     
     
-
-
-
-
-
 def forecast():
+    """
+    Running two threads one for the main function and 
+    other for the API call
+    With Proper synchronization
+    """
+    
     print("Welcome to the Weather Forecasting Platform")
     city=input("Enter the City Name you want the forecast for: ")
 
